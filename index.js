@@ -2,9 +2,11 @@ var os = require('os');
 var path = require('path');
 var exec = require('child_process').exec;
 var Promise = require('bluebird');
+var _ = require('lodash');
+var type = require('type-of');
 
 // resolve path to apktool.jar
-var APK_TOOL = path.resolve(__dirname, '../bin/apktool.jar');
+var apktool = path.resolve(__dirname, './bin/apktool.jar');
 
 /**
  * Decompiles the given .apk file and stores results in the target directory.
@@ -17,16 +19,36 @@ exports.decompile = function (source, target, callback) {
   var resolver;
   var cmd;
 
-  // resolve relative path
-  file = path.resolve(__dirname, file);
+  if (!_.isString(source)) {
+    return Promise.reject(new Error('Invalid source argument; expected string, received ' + type(source)))
+      .nodeify(callback);
+  }
+
+  if (_.isFunction(target)) {
+    callback = target;
+    target = undefined;
+  }
+
+  if (_.isUndefined(target)) {
+    target = path.join(os.tmpdir(), path.basename(source, '.apk'));
+  }
+
+  if (!_.isString(target)) {
+    return Promise.reject(new Error('Invalid target argument; expected string, received ' + type(target)))
+      .nodeify(callback);
+  }
+
+  // resolve relative paths
+  source = path.resolve(source);
+  target = path.resolve(target);
 
   // compile apktool command
-  cmd = 'java -jar ' + APK_TOOL + ' decode --force --output=' + options.destination + ' ' + file;
+  cmd = 'java -jar ' + apktool + ' decode --force --output=' + target + ' ' + source;
 
   resolver = function (resolve, reject) {
     exec(cmd, function (err) {
       if (err) return reject(err);
-      resolve(options.destination);
+      resolve(target);
     });
   };
 
