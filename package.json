@@ -1,16 +1,21 @@
 {
   "name": "apktool",
   "version": "0.1.1",
-  "description": "Handy node.js wrapper for the notorious apktool",
+  "description": "A handy Node.js wrapper for the notorious apktool.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Dimitrios C. Michalakos",
+    "email": "dimitris@jmike.gr",
+    "url": "https://github.com/jmike"
+  },
   "license": "Apache",
   "dependencies": {
     "bluebird": "^2.9.25",
     "lodash": "^3.8.0",
+    "rimraf": "^2.3.3",
     "type-of": "^2.0.1"
   }
 }
