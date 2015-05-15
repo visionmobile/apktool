@@ -4,6 +4,7 @@
   "description": "A handy Node.js wrapper for the notorious apktool.",
   "main": "index.js",
   "scripts": {
+    "preinstall" : "node configure.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
