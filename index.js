@@ -43,7 +43,7 @@ exports.decompile = function (source, target, callback) {
   target = path.resolve(target);
 
   // compile apktool command
-  cmd = 'java -jar ' + apktool + ' decode --force --output=' + target + ' ' + source;
+  cmd = 'java -jar ' + apktool + ' decode --force -c --output=' + target + ' ' + source;
 
   resolver = function (resolve, reject) {
     exec(cmd, function (err) {
