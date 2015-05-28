@@ -8,7 +8,7 @@ var type = require('type-of');
 var CustomError = require('./CustomError');
 
 // resolve path to apktool.jar
-var apktool = path.resolve(__dirname, './bin/apktool.jar');
+var apktool = path.resolve(__dirname, '../bin/apktool.jar');
 
 /**
  * Decompiles the given .apk file and stores results in the target directory.
