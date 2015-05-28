@@ -1,3 +1,7 @@
+## 0.3.1 - 2015-05-28
+
+* Bugfix: invalid reference to apktool binary
+
 ## 0.3.0 - 2015-05-28
 
 * Custom build the apktool.jar from the repo
