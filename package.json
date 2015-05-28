@@ -4,7 +4,7 @@
   "description": "A handy Node.js wrapper for the notorious apktool.",
   "main": "index.js",
   "scripts": {
-    "postinstall" : "node configure.js",
+    "postinstall": "node configure.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -17,7 +17,7 @@
     "bluebird": "^2.9.25",
     "lodash": "^3.8.0",
     "osenv": "^0.1.0",
-    "rimraf": "^2.3.3",
+    "rimraf": "^2.3.4",
     "type-of": "^2.0.1"
   }
 }
