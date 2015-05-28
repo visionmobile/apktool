@@ -5,6 +5,8 @@ var Promise = require('bluebird');
 var _ = require('lodash');
 var type = require('type-of');
 
+var CustomError = require('./CustomError');
+
 // resolve path to apktool.jar
 var apktool = path.resolve(__dirname, './bin/apktool.jar');
 
@@ -20,7 +22,7 @@ exports.decompile = function (source, target, callback) {
   var cmd;
 
   if (!_.isString(source)) {
-    return Promise.reject(new Error('Invalid source argument; expected string, received ' + type(source)))
+    return Promise.reject(new CustomError('Invalid source argument; expected string, received ' + type(source), 'InvalidArgument'))
       .nodeify(callback);
   }
 
@@ -34,7 +36,7 @@ exports.decompile = function (source, target, callback) {
   }
 
   if (!_.isString(target)) {
-    return Promise.reject(new Error('Invalid target argument; expected string, received ' + type(target)))
+    return Promise.reject(new CustomError('Invalid target argument; expected string, received ' + type(target), 'InvalidArgument'))
       .nodeify(callback);
   }
 
