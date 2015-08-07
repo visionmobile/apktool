@@ -15,7 +15,7 @@
   "license": "Apache",
   "dependencies": {
     "bluebird": "^2.9.34",
-    "lodash": "^3.9.3",
+    "lodash": "^3.10.1",
     "osenv": "^0.1.1",
     "rimraf": "^2.3.4",
     "type-of": "^2.0.1"
