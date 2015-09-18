@@ -4,8 +4,8 @@ var exec = require('child_process').exec;
 var Promise = require('bluebird');
 var _ = require('lodash');
 var type = require('type-of');
+var CustomError = require('customerror');
 
-var CustomError = require('./CustomError');
 
 // resolve path to apktool.jar
 var apktool = path.resolve(__dirname, '../bin/apktool.jar');
