@@ -1,6 +1,4 @@
 .DS_Store
 ._*
 .env
-
 node_modules/
-dist/
