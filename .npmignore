@@ -2,7 +2,12 @@
 .env
 .eslintrc
 .gitignore
-gulpfile.js
+.babelrc
+
 CHANGELOG.md
+gulpfile.babel.js
+
+assets/
+test/
+docs/
 src/
-node_modules/
